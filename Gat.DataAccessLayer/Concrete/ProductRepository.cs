@@ -1,5 +1,6 @@
 ﻿using Gat.Core.Entity;
 using Gat.DataAccessLayer.Abstract;
+using Gat.DataAccessLayer.Concrete.GatContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,43 @@ namespace Gat.DataAccessLayer.Concrete
 {
     public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
-        public void Add(Product item)
+        private Context _context;
+
+		public ProductRepository(Context context)
+		{
+			_context = context;
+		}
+
+		public void Add(Product item)
         {
-            throw new NotImplementedException();
+            _context.Products.Add(item);
+            _context.SaveChanges(); 
+
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.Find(id);
+            _context.Products.Remove(product);
+            _context.SaveChanges();
         }
 
         public Product Get(int id)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.Find(id);
+            return product;
         }
 
         public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+            var productList = _context.Products.ToList();
+            return productList;
         }
 
         public void Update(Product item)
         {
-            throw new NotImplementedException();
+            _context.Products.Update(item);
+            _context.SaveChanges();
         }
     }
 }

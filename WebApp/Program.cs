@@ -1,10 +1,13 @@
 using Gat.DataAccessLayer.Concrete.GatContext;
 using Microsoft.EntityFrameworkCore;
+using WebApp.Extention;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddServices();
+builder.Services.AddRepositories();
 
 builder.Services.AddDbContext<Context>(options =>
 {

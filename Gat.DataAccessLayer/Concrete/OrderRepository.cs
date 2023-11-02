@@ -1,5 +1,6 @@
 ﻿using Gat.Core.Entity;
 using Gat.DataAccessLayer.Abstract;
+using Gat.DataAccessLayer.Concrete.GatContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,42 @@ namespace Gat.DataAccessLayer.Concrete
 {
     public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
-        public void Add(Order item)
+        private Context _context;
+
+		public OrderRepository(Context context)
+		{
+			_context = context;
+		}
+
+		public void Add(Order item)
         {
-            throw new NotImplementedException();
+            _context.Orders.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var order = _context.Orders.Find(id);
+            _context.Orders.Remove(order);
+            _context.SaveChanges(); 
         }
 
         public Order Get(int id)
         {
-            throw new NotImplementedException();
+            var order = _context.Orders.Find(id);
+            return order;
         }
 
         public List<Order> GetAll()
         {
-            throw new NotImplementedException();
+            var orderList = _context.Orders.ToList();
+            return orderList;   
         }
 
         public void Update(Order item)
         {
-            throw new NotImplementedException();
+            _context.Orders.Update(item);
+            _context.SaveChanges();
         }
     }
 }

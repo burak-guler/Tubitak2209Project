@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Gat.BusinessLayer.Concrete
 {
-    public class ProductOperationsService : IProductService
+    public class ProductOperationsService : IProductOperationsService
     {
         private IProductOperationsRepository _productOperationsRepository;
 
@@ -18,29 +18,29 @@ namespace Gat.BusinessLayer.Concrete
             _productOperationsRepository = productOperationsRepository;
         }
 
-        public void Add(Product item)
-        {
-            throw new NotImplementedException();
-        }
+		public void Add(ProductOperations item)
+		{
+			throw new NotImplementedException();
+		}
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+		public void Delete(int id)
+		{
+			throw new NotImplementedException();
+		}
 
-        public Product GetByID(int id)
-        {
-            throw new NotImplementedException();
-        }
+		public ProductOperations GetByID(int id)
+		{
+			throw new NotImplementedException();
+		}
 
-        public List<Product> GetList()
-        {
-            throw new NotImplementedException();
-        }
+		public List<ProductOperations> GetList()
+		{
+			throw new NotImplementedException();
+		}
 
-        public void Update(Product item)
-        {
-            throw new NotImplementedException();
-        }
-    }
+		public void Update(ProductOperations item)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

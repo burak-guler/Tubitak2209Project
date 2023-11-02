@@ -1,5 +1,6 @@
 ﻿using Gat.Core.Entity;
 using Gat.DataAccessLayer.Abstract;
+using Gat.DataAccessLayer.Concrete.GatContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,42 @@ namespace Gat.DataAccessLayer.Concrete
 {
     public class CommentRepository : GenericRepository<Comment>, ICommentRepository
     {
-        public void Add(Comment item)
+        private Context _context;
+
+		public CommentRepository(Context context)
+		{
+			_context = context;
+		}
+
+		public void Add(Comment item)
         {
-            throw new NotImplementedException();
+            _context.Comments.Add(item);
+            _context.SaveChanges(); 
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var comment = _context.Comments.Find(id);
+            _context.Comments.Remove(comment);
+            _context.SaveChanges();
         }
 
         public Comment Get(int id)
         {
-            throw new NotImplementedException();
+            var commnet = _context.Comments.Find(id);
+            return commnet;
         }
 
         public List<Comment> GetAll()
         {
-            throw new NotImplementedException();
+            var comment = _context.Comments.ToList();
+            return comment;
         }
 
         public void Update(Comment item)
         {
-            throw new NotImplementedException();
+            _context.Comments.Update(item);
+            _context.SaveChanges();
         }
     }
 }

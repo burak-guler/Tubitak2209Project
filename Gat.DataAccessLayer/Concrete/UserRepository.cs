@@ -1,5 +1,6 @@
 ﻿using Gat.Core.Entity;
 using Gat.DataAccessLayer.Abstract;
+using Gat.DataAccessLayer.Concrete.GatContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,43 @@ namespace Gat.DataAccessLayer.Concrete
 {
     public class UserRepository :GenericRepository<User>, IUserRepository
     {
-        public void Add(User item)
+        private Context _context;
+
+		public UserRepository(Context context)
+		{
+			_context = context;
+		}
+
+		public void Add(User item)
         {
-            throw new NotImplementedException();
+            _context.Users.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var user = _context.Users.Find(id);
+            _context.Users.Remove(user);  
+            _context.SaveChanges();
         }
 
         public User Get(int id)
         {
-            throw new NotImplementedException();
+            var user = _context.Users.Find(id);
+            return user;
         }
 
         public List<User> GetAll()
         {
-            throw new NotImplementedException();
+            var userList= _context.Users.ToList();
+            return userList;
         }
 
         public void Update(User item)
         {
-            throw new NotImplementedException();
+			_context.Users.Update(item);
+			_context.SaveChanges();
+            
         }
     }
 }

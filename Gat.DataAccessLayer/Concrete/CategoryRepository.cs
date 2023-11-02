@@ -1,5 +1,6 @@
 ﻿using Gat.Core.Entity;
 using Gat.DataAccessLayer.Abstract;
+using Gat.DataAccessLayer.Concrete.GatContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,42 @@ namespace Gat.DataAccessLayer.Concrete
 {
     public class CategoryRepository :GenericRepository<Category>, ICategoryRepository
     {
-        public void Add(Category item)
+        private Context _context;
+
+		public CategoryRepository(Context context)
+		{
+			_context = context;
+		}
+
+		public void Add(Category item)
         {
-            throw new NotImplementedException();
+            _context.Categories.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var category = _context.Categories.Find(id);
+            _context.Categories.Remove(category);   
+            _context.SaveChanges(); 
         }
 
         public Category Get(int id)
         {
-            throw new NotImplementedException();
+            var category = _context.Categories.Find(id);
+            return category;
         }
 
         public List<Category> GetAll()
         {
-            throw new NotImplementedException();
+            var cetagoryList= _context.Categories.ToList();
+            return cetagoryList;
         }
 
         public void Update(Category item)
         {
-            throw new NotImplementedException();
+            _context.Categories.Update(item);
+            _context.SaveChanges();
         }
     }
 }

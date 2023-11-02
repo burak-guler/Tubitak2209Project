@@ -20,7 +20,7 @@ namespace Gat.BusinessLayer.Concrete
 
         public void Add(User item)
         {
-            throw new NotImplementedException();
+            _userRepository.Add(item);
         }
 
         public void Delete(int id)
