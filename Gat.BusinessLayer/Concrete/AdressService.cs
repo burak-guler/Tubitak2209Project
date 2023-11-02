@@ -20,27 +20,27 @@ namespace Gat.BusinessLayer.Concrete
 
         public void Add(Adress item)
         {
-            throw new NotImplementedException();
+            _adresRepository.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _adresRepository.Delete(id);
         }
 
         public Adress GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _adresRepository.Get(id);
         }
 
         public List<Adress> GetList()
         {
-            throw new NotImplementedException();
+            return _adresRepository.GetAll();   
         }
 
         public void Update(Adress item)
         {
-            throw new NotImplementedException();
+            _adresRepository.Update(item);  
         }
     }
 }

@@ -20,27 +20,27 @@ namespace Gat.BusinessLayer.Concrete
 
         public void Add(OrderDetail item)
         {
-            throw new NotImplementedException();
+            _orderDetailRepository.Add(item);   
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _orderDetailRepository.Delete(id);
         }
 
         public OrderDetail GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _orderDetailRepository.Get(id);
         }
 
         public List<OrderDetail> GetList()
         {
-            throw new NotImplementedException();
+            return _orderDetailRepository.GetAll(); 
         }
 
         public void Update(OrderDetail item)
         {
-            throw new NotImplementedException();
+            _orderDetailRepository.Update(item);    
         }
     }
 }

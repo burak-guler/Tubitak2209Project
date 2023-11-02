@@ -20,27 +20,27 @@ namespace Gat.BusinessLayer.Concrete
 
         public void Add(Job item)
         {
-            throw new NotImplementedException();
+            _jobRepository.Add(item);   
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _jobRepository.Delete(id);
         }
 
         public Job GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _jobRepository.Get(id);
         }
 
         public List<Job> GetList()
         {
-            throw new NotImplementedException();
+            return _jobRepository.GetAll();
         }
 
         public void Update(Job item)
         {
-            throw new NotImplementedException();
+            _jobRepository.Update(item);
         }
     }
 }

@@ -20,27 +20,27 @@ namespace Gat.BusinessLayer.Concrete
 
         public void Add(Category item)
         {
-            throw new NotImplementedException();
+            _categoryRepository.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _categoryRepository.Delete(id); 
         }
 
         public Category GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _categoryRepository.Get(id); 
         }
 
         public List<Category> GetList()
         {
-            throw new NotImplementedException();
+            return _categoryRepository.GetAll();
         }
 
         public void Update(Category item)
         {
-            throw new NotImplementedException();
+           _categoryRepository.Update(item);
         }
     }
 }

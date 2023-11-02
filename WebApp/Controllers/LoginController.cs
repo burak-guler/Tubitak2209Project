@@ -14,12 +14,29 @@ namespace WebApp.Controllers
 			this._userService = userService;
 		}
 
+        [HttpGet]
 		public IActionResult Login()
         {
             return View();
         }
 
-        [HttpGet]
+        [HttpPost]
+		public IActionResult Login(User p)
+		{
+            var userList = _userService.GetList();
+
+           
+            foreach (var item in userList)
+            {
+                if (item.Mail== p.Mail && item.Password== p.Password)
+                {
+                    return RedirectToAction("Index", "Main");
+                }               
+            }
+			return View();
+		}
+
+		[HttpGet]
         public IActionResult Register()
         {
             return View();

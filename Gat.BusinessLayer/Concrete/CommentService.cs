@@ -20,27 +20,27 @@ namespace Gat.BusinessLayer.Concrete
 
         public void Add(Comment item)
         {
-            throw new NotImplementedException();
+            _commentRepository.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _commentRepository.Delete(id);
         }
 
         public Comment GetByID(int id)
         {
-            throw new NotImplementedException();
+           return _commentRepository.Get(id);
         }
 
         public List<Comment> GetList()
         {
-            throw new NotImplementedException();
+            return _commentRepository.GetAll();
         }
 
         public void Update(Comment item)
         {
-            throw new NotImplementedException();
+            _commentRepository.Update(item);    
         }
     }
 }

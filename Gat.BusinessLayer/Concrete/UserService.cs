@@ -25,22 +25,22 @@ namespace Gat.BusinessLayer.Concrete
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _userRepository.Delete(id);
         }
 
         public User GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _userRepository.Get(id);
         }
 
         public List<User> GetList()
         {
-            throw new NotImplementedException();
+           return _userRepository.GetAll();
         }
 
         public void Update(User item)
         {
-            throw new NotImplementedException();
+            _userRepository.Update(item);   
         }
     }
 }
