@@ -1,6 +1,8 @@
-﻿using Gat.DataAccessLayer.Concrete.GatContext;
+﻿using Gat.Core.Entity;
+using Gat.DataAccessLayer.Concrete.GatContext;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
