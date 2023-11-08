@@ -44,7 +44,13 @@ namespace Gat.DataAccessLayer.Concrete
             return productList;
         }
 
-        public void Update(Product item)
+		public List<Product> GetProductsByUserId(int id)
+		{
+			var userProducts = _context.Products.Where(p => p.UserId == id).ToList();
+			return userProducts;
+		}
+
+		public void Update(Product item)
         {
             _context.Products.Update(item);
             _context.SaveChanges();

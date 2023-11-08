@@ -14,5 +14,7 @@ namespace Gat.BusinessLayer.Abstract
         void Add(Product item);
         void Update(Product item);
         void Delete(int id);
-    }
+		List<Product> GetProductsByUserId(int id);
+		
+	}
 }

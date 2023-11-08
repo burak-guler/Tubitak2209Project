@@ -38,7 +38,12 @@ namespace Gat.BusinessLayer.Concrete
            return _productRepository.GetAll();
         }
 
-        public void Update(Product item)
+		public List<Product> GetProductsByUserId(int id)
+		{
+		  return	_productRepository.GetProductsByUserId(id); 
+		}
+
+		public void Update(Product item)
         {
             _productRepository.Update(item);
         }

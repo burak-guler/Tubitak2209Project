@@ -8,5 +8,11 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        //sayfası daha oluşturulmadı...
+        public IActionResult SellerProductList()
+        {
+            return View();
+        }
     }
 }

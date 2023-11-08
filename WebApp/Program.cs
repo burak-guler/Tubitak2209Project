@@ -6,8 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//servis kullanýmý
 builder.Services.AddServices();
 builder.Services.AddRepositories();
+//session kullanýmý için
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession();
 
 builder.Services.AddDbContext<Context>(options =>
 {
@@ -28,11 +32,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+//session için ekledik
+app.UseSession();
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();
