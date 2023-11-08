@@ -39,7 +39,7 @@
 			<div class="wrap-login100">
 				<form asp-controller="Login" asp-action="Register" method="post" class="login100-form validate-form" style="margin-top:20px;">
 					<span class="login100-form-title p-b-43">
-						Kayıt Ol !
+						Kayıt Ol
 					</span>
 
 
@@ -67,6 +67,12 @@
 						<span class="label-input100">Cüzdan Adres</span>
 					</div>
 
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="PrivateKey">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Cüzdan Anahtar Adresi</span>
+					</div>
+
 					<div class="wrap-input100 validate-input" >
 						<input class="input100" type="text" name="TelNo">
 						<span class="focus-input100"></span>
@@ -77,13 +83,7 @@
 						<input class="input100" type="text" name="Gender">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Cinsiyet</span>
-					</div>
-
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="UserType">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Kullanıcı Tipi</span>
-					</div>
+					</div>					
 
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
@@ -101,7 +101,7 @@
 						</div>
 
 						<div>
-							<a href="#" class="txt1">
+							<a href="/Login/Login/" class="txt1">
 								Giriş Yap!
 							</a>
 						</div>
@@ -131,7 +131,7 @@
 					</div>
 				</form>
 
-				<div class="login100-more" style="background-image: url('images/b44.jpg');">
+				<div class="login100-more" style="background-image: url('/Login/images/b44.jpg');">
 				</div>
 			</div>
 		</div>

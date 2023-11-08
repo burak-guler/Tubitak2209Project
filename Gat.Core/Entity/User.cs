@@ -20,6 +20,7 @@ namespace Gat.Core.Entity
         public string Password { get; set; }
         public string Mail { get; set; }
         public string WalletAdress { get; set; }
+        public string PrivateKey { get; set; }
 
 
 

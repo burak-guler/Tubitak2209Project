@@ -1,0 +1,59 @@
+﻿@using Gat.Core.Model
+@model productCategoryModel
+@{
+    ViewData["Title"] = "SellerUpdateProduct";
+    Layout = "~/Views/Shared/_SellerLayout.cshtml";
+}
+
+<h3>Ürün Güncelle</h3>
+<br />
+<div>
+    <form class="form-group" method="post">
+        @foreach (var item in Model.Products)
+        {
+            <label>Ürün Adı</label>
+            <input name="ProductName" value="@item.ProductName" class="form-control" style="width:30%;" />
+            <br />
+
+            <label>Açıklama<small>(ürün içeriği ve ürün hakkında bilgi)</small></label>
+            <input name="Description" value="@item.Description" class="form-control" style="width:30%;" />
+            <br />
+
+            <label>Kategori</label>
+            <select name="CategoryId" class="form-control" style="width:30%;">
+                <option value="@item.CategoryId">@item.Category.CategoryName</option>
+                @if (Model != null && Model.Categories != null)
+                {
+                    foreach (var item2 in Model.Categories)
+                    {
+                        
+                        <option value="@item2.Id">@item2.CategoryName</option>
+                    }
+                }
+            </select>
+            
+
+            <br />
+            <label>Ürün Fiyat</label>
+            <input name="Price" value="@item.Price" class="form-control" style="width:30%;" />
+            <br />
+
+            <label>Stok Miktarı</label>
+            <input name="Stock" value="@item.Stock" class="form-control" style="width:30%;" />
+            <br />
+
+            <label>Ürün Tipi <small>(kiralık/satılık)</small> </label>
+            <input name="ProductType" value="@item.ProductType" class="form-control" style="width:30%;" />
+            <br />
+
+            <label>Ürün Resmi</label>
+            <input name="ProductImage" value="@item.ProductImage" class="form-control" style="width:30%;" />
+            <br />
+
+            <button class=" btn btn-success" style="background-color:#7fad39;">Ürünü Güncelle</button>
+        }
+       
+    </form>
+
+</div>
+

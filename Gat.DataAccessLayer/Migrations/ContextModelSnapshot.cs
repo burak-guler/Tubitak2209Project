@@ -328,6 +328,10 @@ namespace Gat.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PrivateKey")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TelNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

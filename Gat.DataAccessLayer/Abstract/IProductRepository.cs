@@ -9,5 +9,6 @@ namespace Gat.DataAccessLayer.Abstract
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-    }
+		List<Product> GetProductsByUserId(int id);
+	}
 }
