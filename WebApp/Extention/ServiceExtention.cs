@@ -18,6 +18,8 @@ namespace WebApp.Extention
 			services.AddScoped<IProductOperationsService,ProductOperationsService>();
 			services.AddScoped<IProductService,ProductService>();			
 			services.AddScoped<IUserService, UserService>();
+			services.AddScoped<IContractService, ContractService>();
+			services.AddScoped<IEtherscanService, EtherscanService>();
 			
 			return services;
 		}
@@ -34,6 +36,8 @@ namespace WebApp.Extention
 			services.AddScoped<IProductOperationsRepository, ProductOperationsRepository>();
 			services.AddScoped<IProductRepository, ProductRepository>();
 			services.AddScoped<IUserRepository, UserRepository>();	
+			services.AddScoped<IContractRepository, ContractRepository>();	
+			services.AddScoped<IEtherscanRepository, EtherscanRepository>();	
 			return services;
 		}
 	}

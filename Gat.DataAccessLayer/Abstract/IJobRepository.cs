@@ -9,5 +9,6 @@ namespace Gat.DataAccessLayer.Abstract
 {
     public interface IJobRepository : IGenericRepository<Job>
     {
+        List<Job> GetJobsByUserId(int id);
     }
 }

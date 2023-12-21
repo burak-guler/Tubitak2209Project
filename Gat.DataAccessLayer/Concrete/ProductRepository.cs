@@ -1,6 +1,7 @@
 ﻿using Gat.Core.Entity;
 using Gat.DataAccessLayer.Abstract;
 using Gat.DataAccessLayer.Concrete.GatContext;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,19 +35,19 @@ namespace Gat.DataAccessLayer.Concrete
 
         public Product Get(int id)
         {
-            var product = _context.Products.Find(id);
+            var product = _context.Products.Include(x => x.Category).Where(x=>x.Id==id).FirstOrDefault();
             return product;
         }
 
         public List<Product> GetAll()
         {
-            var productList = _context.Products.ToList();
+            var productList = _context.Products.Include(x=>x.Category).ToList();
             return productList;
         }
 
 		public List<Product> GetProductsByUserId(int id)
 		{
-			var userProducts = _context.Products.Where(p => p.UserId == id).ToList();
+			var userProducts = _context.Products.Where(p => p.UserId == id).Include(x=>x.Category).ToList();
 			return userProducts;
 		}
 

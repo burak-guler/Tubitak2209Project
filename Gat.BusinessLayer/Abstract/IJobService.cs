@@ -14,5 +14,6 @@ namespace Gat.BusinessLayer.Abstract
         void Add(Job item);
         void Update(Job item);
         void Delete(int id);
+        List<Job> GetJobsByUserId(int id);
     }
 }

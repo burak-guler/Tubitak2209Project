@@ -1,9 +1,10 @@
 ﻿@using Gat.Core.Entity
 @model List<Product>
 @{
-    ViewData["Title"] = "SellerProductList";
+    ViewData["Title"] = "SellerProductHireList";
     Layout = "~/Views/Shared/_SellerLayout.cshtml";
 }
+
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-TIwD35/3F7Jq4uwUOpC8Im/kOTU8IuZ3z5w+/z9bZLP4L4Np/P4YOOq0F72Mny6" crossorigin="anonymous">
@@ -25,13 +26,13 @@
             margin-right: 8px;
         }
 
-        td, th{
-            text-align:center;
-        }
+    td, th {
+        text-align: center;
+    }
 </style>
 
 <br />
-<h3 class="product-header"><i class="fas fa-shopping-bag"></i> Satılık Ürünler</h3>
+<h3 class="product-header"><i class="fas fa-shopping-bag"></i> Kiralık Ürünler</h3>
 <br />
 <table class="table table-bordered">
     <thead>
@@ -51,8 +52,8 @@
                 <td>@item.ProductName</td>
                 <td>@item.Category.CategoryName</td>
                 <td>₺@item.Price</td>
-                <td > <a class="btn btn-warning" asp-controller="Shop" asp-action="SellerUpdateProduct" asp-route-id="@item.Id">Güncelle</a> </td>
-                <td > <a class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal-@item.Id">Sil</a> </td>
+                <td> <a class="btn btn-warning" asp-controller="Shop" asp-action="SellerUpdateProduct" asp-route-id="@item.Id">Güncelle</a> </td>
+                <td> <a class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal-@item.Id">Sil</a> </td>
                 <td> <a class="btn btn-secondary" style="color:white;" data-toggle="modal" data-target="#productDetailModal-@item.Id">Ürün Detayı</a> </td>
             </tr>
 
@@ -107,14 +108,13 @@
                     </div>
                 </div>
             </div>
-        }     
-            
-        
+        }
+
+
     </tbody>
 </table>
 
 <a class="btn btn-primary" style="color:white; background-color:#7fad39;" asp-controller="Shop" asp-action="SellerAddProduct">Ürün Ekle</a>
-
 
 
 

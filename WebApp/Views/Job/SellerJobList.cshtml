@@ -1,7 +1,7 @@
 ﻿@using Gat.Core.Entity
-@model List<Product>
+@model List<Job>
 @{
-    ViewData["Title"] = "SellerProductList";
+    ViewData["Title"] = "SellerJobList";
     Layout = "~/Views/Shared/_SellerLayout.cshtml";
 }
 
@@ -25,57 +25,52 @@
             margin-right: 8px;
         }
 
-        td, th{
-            text-align:center;
-        }
+    td, th {
+        text-align: center;
+    }
 </style>
 
 <br />
-<h3 class="product-header"><i class="fas fa-shopping-bag"></i> Satılık Ürünler</h3>
+<h3 class="product-header"><i class="fas fa-briefcase"></i> İş İlanları</h3>
 <br />
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Ürün Adı</th>
-            <th>Kategori</th>
-            <th>Fiyat</th>
-            <th>Güncelle</th>
-            <th>Sil</th>
-            <th>Detay</th>
+            <th>İlan Başlığı</th>
+            <th>Tarih</th>            
+            <th>Güncelle</th>            
+            <th>Sil</th>            
+            <th>İlan Detay</th>            
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.ProductName</td>
-                <td>@item.Category.CategoryName</td>
-                <td>₺@item.Price</td>
-                <td > <a class="btn btn-warning" asp-controller="Shop" asp-action="SellerUpdateProduct" asp-route-id="@item.Id">Güncelle</a> </td>
-                <td > <a class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal-@item.Id">Sil</a> </td>
-                <td> <a class="btn btn-secondary" style="color:white;" data-toggle="modal" data-target="#productDetailModal-@item.Id">Ürün Detayı</a> </td>
+                <td>@item.Title</td>              
+                <td>@item.Date.ToString("dd.MM.yyyy")</td>
+                <td> <a class="btn btn-warning" asp-controller="Job" asp-action="SellerUpdateJob" asp-route-id="@item.Id">Güncelle</a> </td>
+                <td> <a class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal-@item.Id">Sil</a> </td>
+                <td> <a class="btn btn-secondary" style="color:white;" data-toggle="modal" data-target="#jobDetailModal-@item.Id">İlan Detayı</a> </td>
             </tr>
 
 
-            <div class="modal fade" id="productDetailModal-@item.Id" tabindex="-1" role="dialog" aria-labelledby="productDetailModalLabel" aria-hidden="true">
+            <div class="modal fade" id="jobDetailModal-@item.Id" tabindex="-1" role="dialog" aria-labelledby="jobDetailModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="productDetailModalLabel">@item.ProductName</h5>
+                            <h5 class="modal-title" id="jobDetailModalLabel">@item.Title</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="@item.ProductImage" alt="@item.ProductName" class="img-fluid">
-                                </div>
-                                <div class="col-md-6">
-                                    <p><strong>Fiyat:</strong> @item.Price.ToString("C")</p>
-                                    <p><strong>Stok:</strong> @item.Stock</p>
-                                    <p><strong>Kategori:</strong> @item.Category.CategoryName</p>
-                                    <p><strong>Tür:</strong> @item.ProductType</p>
+                            <div class="row">                                
+                                <div>
+                                    <p><strong>Ücret:</strong> @item.Pay.ToString("C")</p>
+                                    <p><strong>Adres:</strong> @item.JobAdress</p>
+                                    <p><strong>İlan Tarihi:</strong> @item.Date.ToString("dd.MM.yyyy")</p>  
+                                    <p><strong>Çalışma Saati:</strong> @item.JobDuration</p>
                                     <p><strong>Açıklama:</strong> @item.Description</p>
                                 </div>
                             </div>
@@ -102,19 +97,16 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
-                            <a href="@Url.Action("SellerDeleteProduct", "Shop", new { id = item.Id })" class="btn btn-danger">Evet, Sil</a>
+                            <a href="@Url.Action("SellerDeleteJob", "Job", new { id = item.Id })" class="btn btn-danger">Evet, Sil</a>
                         </div>
                     </div>
                 </div>
             </div>
-        }     
-            
-        
+        }
+
+
     </tbody>
 </table>
 
-<a class="btn btn-primary" style="color:white; background-color:#7fad39;" asp-controller="Shop" asp-action="SellerAddProduct">Ürün Ekle</a>
-
-
-
+<a class="btn btn-primary" style="color:white; background-color:#7fad39;" asp-controller="Job" asp-action="SellerAddJob">İlan Ekle</a>
 

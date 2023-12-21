@@ -33,6 +33,11 @@ namespace Gat.BusinessLayer.Concrete
             return _jobRepository.Get(id);
         }
 
+        public List<Job> GetJobsByUserId(int id)
+        {
+            return _jobRepository.GetJobsByUserId(id);
+        }
+
         public List<Job> GetList()
         {
             return _jobRepository.GetAll();

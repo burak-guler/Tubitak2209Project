@@ -17,7 +17,7 @@ namespace Gat.Core.Entity
         public decimal Pay { get; set; }
         public string JobAdress { get; set; }
         public DateTime Date  { get; set; }
-        public DateTime JobDuration { get; set; }
+        public int JobDuration { get; set; }
 
 		[ForeignKey(nameof(User))]
 		public int? UserId { get; set; }

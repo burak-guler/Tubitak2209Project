@@ -43,6 +43,12 @@ namespace Gat.DataAccessLayer.Concrete
             return joblist;
         }
 
+        public List<Job> GetJobsByUserId(int id)
+        {
+            var jobList = _context.Jobs.Where(x=>x.UserId==id).ToList();
+            return jobList;
+        }
+
         public void Update(Job item)
         {
             _context.Jobs.Update(item);
