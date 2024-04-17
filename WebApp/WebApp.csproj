@@ -22,12 +22,18 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Gat.BusinessLayer\Gat.BusinessLayer.csproj" />
     <ProjectReference Include="..\Gat.Core\Gat.Core.csproj" />
     <ProjectReference Include="..\Gat.DataAccessLayer\Gat.DataAccessLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\ImageProduct\" />
+    <Folder Include="wwwroot\ImageJob\" />
   </ItemGroup>
 
 </Project>

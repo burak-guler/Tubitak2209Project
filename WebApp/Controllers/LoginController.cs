@@ -38,11 +38,7 @@ namespace WebApp.Controllers
                 {
 					_httpContextAccessor.HttpContext.Session.SetInt32("UserId", item.Id);
 					return RedirectToAction("Index", "Main");
-                }
-                else
-                {
-                    return View();
-                }
+                }               
             }
 			return View();
 		}

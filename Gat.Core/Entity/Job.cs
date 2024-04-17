@@ -18,9 +18,12 @@ namespace Gat.Core.Entity
         public string JobAdress { get; set; }
         public DateTime Date  { get; set; }
         public int JobDuration { get; set; }
+        public string JobImage { get; set; }
 
 		[ForeignKey(nameof(User))]
 		public int? UserId { get; set; }
+
+        
 
         public virtual User User { get; set; }  
     }

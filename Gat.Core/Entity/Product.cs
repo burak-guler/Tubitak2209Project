@@ -25,6 +25,8 @@ namespace Gat.Core.Entity
 
 		[ForeignKey(nameof(Category))]
 		public int? CategoryId { get; set; }
+
+        public string AdvertCode { get; set; }
         
         public virtual User User { get; set; }
         

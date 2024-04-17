@@ -65,8 +65,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="row">                                
-                                <div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="@item.JobImage" alt="@item.JobImage" class="img-fluid">
+                                </div>                               
+                                <div class="col-md-6">
                                     <p><strong>Ücret:</strong> @item.Pay.ToString("C")</p>
                                     <p><strong>Adres:</strong> @item.JobAdress</p>
                                     <p><strong>İlan Tarihi:</strong> @item.Date.ToString("dd.MM.yyyy")</p>  

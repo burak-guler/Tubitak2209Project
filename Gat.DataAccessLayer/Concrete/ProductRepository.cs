@@ -35,7 +35,7 @@ namespace Gat.DataAccessLayer.Concrete
 
         public Product Get(int id)
         {
-            var product = _context.Products.Include(x => x.Category).Where(x=>x.Id==id).FirstOrDefault();
+            var product = _context.Products.Include(x => x.Category).Include(y=>y.User).Where(x=>x.Id==id).FirstOrDefault();
             return product;
         }
 

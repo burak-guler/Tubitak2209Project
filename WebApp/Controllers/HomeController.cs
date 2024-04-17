@@ -36,19 +36,20 @@ namespace WebApp.Controllers
             //var hash = _contractService.PurchaseProducts(privateKey,buyerAddress,sellers,productNames,productTypes,productPrices,productAmounts,buyerName,buyerSurname,sellerNames,sellerSurnames);
             //ViewBag.hashAdres = hash.ToString();
 
-            string privateKey = "a323fb226863a92fb7be2ae5797c0f21836b3bbcb002b71195d0519a28b6a932";
-            var buyerAddress = "0xE5ed40436Fd514028403D5b310Ec0CFCa732502D";
-            var sellers = new string[] { "0x9A36D7C2AEA774268cb9A41e9c2D68BF258D54eF", "0x9A36D7C2AEA774268cb9A41e9c2D68BF258D54eF" };
-            var aplianceNames = new string[] { "Domates", "Salata" }; // Replace with product names
-            var aplianceTypes = new string[] { "Sebze", "Sebze" }; // Replace with product types
-            var buyerName = "Bertug";
-            var buyerSurname = "Vatansever";
-            var sellerNames = new string[] { "Burak", "Umut" }; // Replace with seller names
-            var sellerSurnames = new string[] { "Guler", "Ulke" }; // Replace with seller surnames
-            var endtime = new string[] { "27.03.2023", "27.03.2023" };
-            var starttime = new string[] { "27.03.2023", "27.03.2023" };
+            //kiralama
+            //string privateKey = "a323fb226863a92fb7be2ae5797c0f21836b3bbcb002b71195d0519a28b6a932";
+            //var buyerAddress = "0xE5ed40436Fd514028403D5b310Ec0CFCa732502D";
+            //var sellers = new string[] { "0x9A36D7C2AEA774268cb9A41e9c2D68BF258D54eF", "0x9A36D7C2AEA774268cb9A41e9c2D68BF258D54eF" };
+            //var aplianceNames = new string[] { "Domates", "Salata" }; // Replace with product names
+            //var aplianceTypes = new string[] { "Sebze", "Sebze" }; // Replace with product types
+            //var buyerName = "Bertug";
+            //var buyerSurname = "Vatansever";
+            //var sellerNames = new string[] { "Burak", "Umut" }; // Replace with seller names
+            //var sellerSurnames = new string[] { "Guler", "Ulke" }; // Replace with seller surnames
+            //var endtime = new string[] { "27.03.2023", "27.03.2023" };
+            //var starttime = new string[] { "27.03.2023", "27.03.2023" };
 
-            _contractService.AppLianceHire(privateKey, buyerAddress, sellers, aplianceNames, aplianceTypes, buyerName, buyerSurname, sellerNames, sellerSurnames, starttime, endtime);
+            //_contractService.AppLianceHire(privateKey, buyerAddress, sellers, aplianceNames, aplianceTypes, buyerName, buyerSurname, sellerNames, sellerSurnames, starttime, endtime);
 
 
             return View();

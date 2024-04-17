@@ -10,17 +10,28 @@ namespace WebApp.Controllers
         
         private IHttpContextAccessor _httpContextAccessor;
         private IJobService _jobService;
-        
-        public JobController( IHttpContextAccessor httpContextAccessor, IJobService jobService)
+        private IWebHostEnvironment _hostingEnvironment;
+
+        public JobController( IHttpContextAccessor httpContextAccessor, IJobService jobService, IWebHostEnvironment hostingEnvironment)
         {
             this._jobService = jobService;
-            this._httpContextAccessor = httpContextAccessor;           
+            this._httpContextAccessor = httpContextAccessor;
+            this._hostingEnvironment = hostingEnvironment;
         }
 
+        //Gat sitesi için olan actionlar
 
         public IActionResult Index()
         {
-            return View();
+            var jobList = _jobService.GetList();
+            ViewBag.JobCount= jobList.Count;
+            return View(jobList);
+        }
+
+        public IActionResult JobDetails(int id)
+        {
+            var job = _jobService.GetByID(id);
+            return View(job);
         }
 
         // satıcı paneli için olan controller
@@ -38,9 +49,24 @@ namespace WebApp.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult SellerAddJob(Job item)
+        public IActionResult SellerAddJob(Job item, IFormFile JobImage)
         {
             item.UserId = _httpContextAccessor.HttpContext.Session.GetInt32("SellerUserId");
+
+            if (JobImage != null && JobImage.Length > 0)
+            {
+                // Resmi bir yere kaydet, örneğin wwwroot içine
+                var imagePath = Path.Combine(_hostingEnvironment.WebRootPath, "ImageJob", JobImage.FileName);
+
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    JobImage.CopyTo(stream);
+                }
+
+                // Resmin yolunu veritabanına kaydet
+                item.JobImage = "/imagejob/" + JobImage.FileName;
+            }
+
             _jobService.Add(item);
             return RedirectToAction("SellerJobList");
         }
@@ -52,8 +78,22 @@ namespace WebApp.Controllers
             return View(job);
         }
         [HttpPost]
-        public IActionResult SellerUpdateJob(Job item)
+        public IActionResult SellerUpdateJob(Job item, IFormFile JobImage)
         {
+            if (JobImage != null && JobImage.Length > 0)
+            {
+                // Resmi bir yere kaydet, örneğin wwwroot içine
+                var imagePath = Path.Combine(_hostingEnvironment.WebRootPath, "ImageJob", JobImage.FileName);
+
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    JobImage.CopyTo(stream);
+                }
+
+                // Resmin yolunu veritabanına kaydet
+                item.JobImage = "/imagejob/" + JobImage.FileName;
+            }
+
             _jobService.Update(item);
             return RedirectToAction("SellerJobList");
         }

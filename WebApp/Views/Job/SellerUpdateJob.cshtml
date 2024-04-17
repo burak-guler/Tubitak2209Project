@@ -8,7 +8,7 @@
 <h3>İlan Güncelle</h3>
 <br />
 <div>
-    <form class="form-group" method="post">
+    <form class="form-group" method="post" enctype="multipart/form-data">
 
         <label>İlan Başlığıı</label>
         <input name="UserId" value="@Model.UserId" class="form-control" style="width:30%;" hidden />
@@ -36,6 +36,10 @@
 
         <label>İlan Tarihi</label>
         <input name="Date" value="@Model.Date.ToString("dd.MM.yyyy")" class="form-control" style="width:30%;" />
+        <br />
+
+        <label>İlan Resmi</label>
+        <input type="file" name="JobImage" class="form-control" style="width:30%;" />
         <br />
 
         <button class=" btn btn-success" style="background-color:#7fad39;">İlanı Güncelle</button>

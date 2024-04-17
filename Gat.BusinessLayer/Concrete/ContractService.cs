@@ -17,9 +17,9 @@ namespace Gat.BusinessLayer.Concrete
             _contractRepository = contractRepository;
         }
 
-        public async Task AppLianceHire(string _privateKey, string _buyerAddress, string[] _sellersAddress, string[] _applianceNames, string[] _applianceTypes, string _buyerName, string _buyerSurname, string[] _sellerNames, string[] _sellerSurnames, string[] _startTimes, string[] _endTimes)
+        public async Task AppLianceHire(string _privateKey, string _buyerAddress, string[] _sellersAddress, string[] _applianceNames, string[] _applianceTypes, string[] _productPrices, string _buyerName, string _buyerSurname, string[] _sellerNames, string[] _sellerSurnames, string[] _startTimes, string[] _endTimes)
         {
-            await _contractRepository.AppLianceHire( _privateKey, _buyerAddress,  _sellersAddress, _applianceNames, _applianceTypes,  _buyerName, _buyerSurname,  _sellerNames,  _sellerSurnames, _startTimes,  _endTimes);
+            await _contractRepository.AppLianceHire( _privateKey, _buyerAddress,  _sellersAddress, _applianceNames, _applianceTypes, _productPrices,  _buyerName, _buyerSurname,  _sellerNames,  _sellerSurnames, _startTimes,  _endTimes);
         }
 
         public async Task PurchaseProducts(string _privateKey, string _buyerAddress, string[] _sellersAddress, string[] _productNames, string[] _productTypes, string[] _productPrices, string[] _productAmounts, string _buyerName, string _buyerSurname, string[] _sellerNames, string[] _sellerSurnames)

@@ -8,7 +8,7 @@
 <h3>Ürün Ekle</h3>
 <br />
 <div>
-    <form class="form-group" method="post">
+    <form class="form-group" method="post" enctype="multipart/form-data">
         
         <label>Ürün Adı</label>
         <input name="ProductName" class="form-control" style="width:30%;" />
@@ -44,7 +44,7 @@
         <br />
 
         <label>Ürün Resmi</label>
-        <input name="ProductImage" class="form-control" style="width:30%;" />
+        <input type="file" name="ProductImage" class="form-control" style="width:30%;" />
         <br />
                
         <button class=" btn btn-success" style="background-color:#7fad39;">Ürünü Ekle</button>

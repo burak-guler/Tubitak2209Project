@@ -1,6 +1,7 @@
 ﻿using Gat.Core.Entity;
 using Gat.DataAccessLayer.Abstract;
 using Gat.DataAccessLayer.Concrete.GatContext;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,13 +34,13 @@ namespace Gat.DataAccessLayer.Concrete
 
         public Job Get(int id)
         {
-            var job = _context.Jobs.Find(id);
+            var job = _context.Jobs.Include(x=>x.User).Where(y=>y.Id==id).FirstOrDefault();
             return job;
         }
 
         public List<Job> GetAll()
         {
-            var joblist = _context.Jobs.ToList();   
+            var joblist = _context.Jobs.Include(x=>x.User).ToList();   
             return joblist;
         }
 
