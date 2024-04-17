@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 ﻿using Gat.BusinessLayer.Abstract;
 using Gat.Core.Model;
+=======
+﻿using Gat.Core.Entity;
+>>>>>>> 0697b16a2ae9fad810f7f4667bb0e632747aa704
 using Gat.DataAccessLayer.Concrete.GatContext;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
